@@ -7,9 +7,10 @@ import java.io.InputStreamReader;
 
 /**
  *
- * @author Samuel Varela 
- *     Juan Manuel De La Cruz 
- *      Daniel Felipe Cleves
+ * @author  Nicole Andrea Escobar
+ *         Daniel Felipe Cleves
+ *         Juan Manuel De la Cruz
+ *          Samuel Varela Morales
  */
 public class hBuff {
     

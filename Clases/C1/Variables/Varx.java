@@ -9,7 +9,10 @@ package Variables;
 
 /**
  *
- * @author estudiantes
+ * @author  Nicole Andrea Escobar
+ *         Daniel Felipe Cleves
+ *         Juan Manuel De la Cruz
+ *          Samuel Varela Morales
  */
 public class Varx {
 

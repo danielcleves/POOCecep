@@ -9,7 +9,10 @@ import java.util.Scanner;
 
 /**
  *
- * @author estudiantes
+ * @author Nicole Andrea Escobar
+ *         Daniel Felipe Cleves
+ *         Juan Manuel De la Cruz
+ *          Samuel Varela Morales
  */
 public class CapVars {
 public static Scanner sLea=new Scanner(System.in);
@@ -35,7 +38,6 @@ public static Scanner xLea=new Scanner(System.in);
         
         System.out.print("\nIdentificacion: " + idCli
                 + "\nNombre: " + sNompac);
-
     }
-
+    
 }
