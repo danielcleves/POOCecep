@@ -3,9 +3,10 @@ import java.io.InputStreamReader;
 
 /**
  *
- * @author Samuel Varela
- *         Juan Manuel De La Cruz
+ * @author Nicole Andrea Escobar
  *         Daniel Felipe Cleves
+ *         Juan Manuel De la Cruz
+ *         Samuel Varela Morales
  */
 
 public class App {
