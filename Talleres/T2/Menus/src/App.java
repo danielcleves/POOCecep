@@ -19,7 +19,7 @@ public class App {
         };
         int iSelec, iSubSelec; // opción, subopción seleccionada
         String sSelec, rSelec, rSubSelec;
-        boolean exit = false, haveSec = false;
+        boolean exit = false, haveSub = false;
 
         while (!exit) {
             int i = 1;
@@ -49,12 +49,12 @@ public class App {
                     System.out.println("└-------------------┘");
                     break;
                 default:
-                    haveSec = true;
+                    haveSub = true;
                     break;
             }
 
-            if (haveSec) {
-                haveSec = false;
+            if (haveSub) {
+                haveSub = false;
                 if ((menus[iSelec][1].length >= 1)) {
                     while (!exit) {
                         System.out.println("\nMenú " + sSelec);
