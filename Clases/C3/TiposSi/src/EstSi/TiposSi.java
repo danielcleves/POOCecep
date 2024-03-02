@@ -1,6 +1,10 @@
 package EstSi;
 
-// Autor Daniel Felipe Cleves Rueda S3AN
+/* Estudiantes  Nicole Andrea Escobar
+ *               Daniel Felipe Cleves
+ *              Juan Manuel De la Cruz
+ *              Samuel Varela Morales
+ */
 
 public class TiposSi {
     public static int nIdcli = 4168;
