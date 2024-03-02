@@ -1,6 +1,13 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ *
+ * @author Samuel Varela
+ *         Juan Manuel De La Cruz
+ *         Daniel Felipe Cleves
+ */
+
 public class App {
     public static void main(String[] args) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
