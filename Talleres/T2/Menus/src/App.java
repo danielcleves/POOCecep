@@ -13,8 +13,9 @@ public class App {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String[][][] menus = { { { "Caracteres" }, { "Mayúsculas", "Minúsculas" } }, { { "Numéricos" } },
                 { { "Comodines" } } };
-        int iSelec, iSubSelec;
-        String sSelec;
+        int iSelec, iSubSelec; // opción, subopción seleccionada
+        String sSelec; // Guarda la opción selecionada, si es una sub opción se guarda como
+                       // "opción > subopción"
 
         int i = 1;
         for (String[][] menu : menus) {
@@ -25,7 +26,8 @@ public class App {
         iSelec = Integer.parseInt(reader.readLine()) - 1;
         sSelec = menus[iSelec][0][0];
 
-        // Aquí se validará si la respuesta es una respuesta final
+        // Aquí se validará si la respuesta es una respuesta final y si lo es se
+        // ejecutará lo pedido
 
         i = 1;
         for (String option : menus[iSelec][1]) {
@@ -37,5 +39,8 @@ public class App {
         sSelec += " > " + menus[iSelec][1][iSubSelec];
 
         System.out.println(sSelec);
+
+        // Aquí se validará si la respuesta es una respuesta final y si lo es se
+        // ejecutará lo pedido
     }
 }
