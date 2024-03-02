@@ -1,5 +1,11 @@
 package EstSw;
 
+/* Estudiantes  Nicole Andrea Escobar
+ *              Daniel Felipe Cleves
+ *              Juan Manuel De la Cruz
+ *              Samuel Varela Morales 
+ */
+
 import java.util.Scanner;
 
 public class TiposSw {
