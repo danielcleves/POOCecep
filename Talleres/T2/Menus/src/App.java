@@ -27,21 +27,34 @@ public class App {
         iSelec = Integer.parseInt(reader.readLine()) - 1;
         sSelec = menus[iSelec][0][0];
 
-        // Aquí se validará si la respuesta es una respuesta final y si lo es se
-        // ejecutará lo pedido
-
-        i = 1;
-        for (String option : menus[iSelec][1]) {
-            System.out.println(i + ") " + option);
-            i++;
+        switch (sSelec.toLowerCase()) {
+            case "numéricos":
+                System.out.println("\n┌-------------------┐");
+                System.out.println("| Valores numericos |");
+                System.out.println("├-------------------┤");
+                for (int j = 0; j < 10; j++) {
+                    System.out.println("|         " + j + "         |");
+                }
+                System.out.println("└-------------------┘");
+                break;
         }
-        System.out.print("Q) Salir\nEscribe la opción: ");
-        iSubSelec = Integer.parseInt(reader.readLine()) - 1;
-        sSelec += " > " + menus[iSelec][1][iSubSelec];
+
+        if (menus[iSelec][1].length >= 1) {
+            i = 1;
+            for (String option : menus[iSelec][1]) {
+                System.out.println(i + ") " + option);
+                i++;
+            }
+            System.out.print("Q) Salir\nEscribe la opción: ");
+            iSubSelec = Integer.parseInt(reader.readLine()) - 1;
+            sSelec += " > " + menus[iSelec][1][iSubSelec];
+
+            // Aquí se validará si la respuesta es una respuesta final y si lo es se
+            // ejecutará lo pedido
+        } else {
+
+        }
 
         System.out.println(sSelec);
-
-        // Aquí se validará si la respuesta es una respuesta final y si lo es se
-        // ejecutará lo pedido
     }
 }
