@@ -1,11 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Variables;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  *
@@ -15,8 +12,7 @@ import java.util.Scanner;
  *          Samuel Varela Morales
  */
 public class CapVars {
-public static Scanner sLea=new Scanner(System.in);
-public static Scanner xLea=new Scanner(System.in);
+public static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     private static int idCli;
     public static String sNompac;
     public static String sApapac;
@@ -27,13 +23,13 @@ public static Scanner xLea=new Scanner(System.in);
 
     private static String sPalabra = "Hospital Pacientes Cronicos";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NumberFormatException, IOException {
         System.out.println("\t\t\t" + sPalabra + "\t\t\t");
         System.out.print("\nIdentificacion: ");
-        idCli=xLea.nextInt();
+        idCli=Integer.parseInt(reader.readLine());
         
         System.out.print("\nNombre: ");
-        sNompac=sLea.nextLine();
+        sNompac=reader.readLine();
         
         
         System.out.print("\nIdentificacion: " + idCli
