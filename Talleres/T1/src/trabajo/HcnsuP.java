@@ -1,6 +1,9 @@
 package trabajo;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Reader;
 
 /**
  *
@@ -25,34 +28,32 @@ public class HcnsuP {
     
     // Hay un Scanner para las variables tipo cadenas y otra numerico
 
-    public static Scanner sLea = new Scanner(System.in);
-    public static Scanner xLea = new Scanner(System.in);
+    public static BufferedReader reader = new BufferedReader(InputStreamReader(System.in));
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         
-        // Aqui empezamos a preguntarle los datos al paciente
-        
+        // El paciente ingresa los datos        
         System.out.print("\t\t\t " + sNameComp + "\t\t\t");
         System.out.print("\nIdentificación: ");
-        idCli = xLea.nextInt();  // De esta manera caputramos los Numericos
+        idCli = Integer.parseInt(reader.readLine()); // De esta manera caputramos los Numericos
         
         System.out.print("\nIngrese su nombre: ");
-        sNamep = sLea.next();   // De esta manera caputramos los String
+        sNamep = reader.readLine();  // De esta manera caputramos los String
         
         System.out.print("\nIngrese su apellido: ");
-        sApep = sLea.next();
+        sApep = reader.readLine();
         
         System.out.print("\nIngrese su genero: ");
-        cGenp = sLea.next().charAt(0);
+        cGenp = reader.readLine().charAt(0);
         
         System.out.print("\nIngrese su fecha de nacimiento: " );
-        sDate = sLea.next();
+        sDate = reader.readLine();
         
         System.out.print("\nIngrese su peso en Kg: ");
-        dPeso = xLea.nextDouble();
+        dPeso = Double.parseDouble(reader.readLine());
         
         System.out.print("\nIngrese su altura en cm: ");
-        fTall = xLea.nextFloat();
+        fTall = Float.parseFloat(reader.readLine());
         
         // Esta sección se encuentra lo que queremos imprimir
         
@@ -65,5 +66,10 @@ public class HcnsuP {
                 + "\nEl peso del paciente es: " + dPeso
                 + "\nLa altura del paciente es: " + fTall);
         
+    }
+
+    private static Reader InputStreamReader(InputStream in) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'InputStreamReader'");
     }
 }
