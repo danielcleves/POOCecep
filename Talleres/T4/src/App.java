@@ -17,6 +17,7 @@ public class App {
                 gestorMenu.showMenu(seleccion, gestorBD.getTables());
                 break;
             default:
+                System.out.println("Esta opción todavía no está codificada");
                 break;
         }
     }

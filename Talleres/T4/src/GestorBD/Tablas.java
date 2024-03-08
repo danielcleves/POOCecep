@@ -1,7 +1,6 @@
 package GestorBD;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Tablas {
     String[][][] modeloTablas = {
@@ -14,8 +13,33 @@ public class Tablas {
                     { "Id Empleado", "Id Almacen" }
             }
     };
-    ArrayList<String[]> tablas = new ArrayList<String[]>(Arrays.asList(
-            new String[] { "1", "Daniel", "Cleves" }));
+    String[][][] registrosQuemados = {
+            {
+                    { "1", "Daniel", "Cleves" }
+            }
+    };
+
+    ArrayList<ArrayList<String[]>> tablas = new ArrayList<ArrayList<String[]>>();
+
+    public Tablas() {
+        // Se añaden los registros quemados
+        for (String[][] tabla : registrosQuemados) {
+            for (String[] registro : tabla) {
+                addRegister(tabla[0][0], registro);
+            }
+        }
+    }
+
+    public int getTableIndex(String tabla) {
+        int i = 0;
+        while (i < modeloTablas.length) {
+            if (modeloTablas[i][0][0] == tabla) {
+                break;
+            }
+            i++;
+        }
+        return i;
+    }
 
     public String[] getTables() {
         ArrayList<String> result = new ArrayList<>();
@@ -26,14 +50,23 @@ public class Tablas {
         return result.toArray(new String[0]);
     }
 
-    public void addRegister(String tabla, String[] registro) {
-        int i = 0;
-        while (i < modeloTablas.length) {
-            if (modeloTablas[i][0][0] == tabla) {
-                break;
-            }
-            i++;
-        }
-        System.out.println(i);
+    public String[] getAttributes(String tabla) {
+        return modeloTablas[getTableIndex(tabla)][1];
     }
+
+    public String[][] getRegisters(String tabla) {
+        ArrayList<String[]> preResult = tablas.get(getTableIndex(tabla));
+        int longitud = preResult.size();
+        String[][] result = new String[longitud][];
+        for (int i = 0; i < longitud; i++) {
+            result[i] = preResult.get(i);
+        }
+        return result;
+    };
+
+    public void addRegister(String tabla, String[] registro) {
+        ArrayList<String[]> targetTable = tablas.get(getTableIndex(tabla));
+        targetTable.add(registro);
+    }
+
 }
