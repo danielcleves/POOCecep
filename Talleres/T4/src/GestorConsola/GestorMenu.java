@@ -5,10 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class GestorMenu {
-    // Aquí se ha a recibir un String[] y se debe devolver un String (el
-    // seleccionado)
-    public String showMenu(String titulo, String[] opcion) throws IOException {
-        
+
         public static void main(String[] args) throws IOException {
        
             GestorMenu gestorMenu = new GestorMenu(); 
@@ -25,6 +22,6 @@ public class GestorMenu {
                 }
                 System.out.println("Q) Salir");
                 System.out.print("Opción: ");
-                return reader.readLine(); // Devolver la opción seleccionada
+                return reader.readLine(); 
         }
 }
