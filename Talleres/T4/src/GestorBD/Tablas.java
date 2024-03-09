@@ -18,7 +18,28 @@ public class Tablas {
                             "Numero de documento de identificacion", "Direccion de recidencia", "Telefono", "Email",
                             "Genero", "Fecha de nacimiento", "Info seguro", "Tipo de contrato", "Duracion de contrato",
                             "Fondo de pensiones", "Sueldo", "Inicio de trabajo" }
-            }
+            },
+            {
+                    { "Producto" },
+                    { "Nombre del producto", "Codigo del producto", "Descripcion del producto", "Stock", "Precio",
+                            "Fecha de ingreso", "Numero de factura", "Categoría", "Marca" }
+            },
+            {
+                    { "Ubicacion" },
+                    { "Id producto", "Id almacen" }
+            },
+            {
+                    { "Factura cliente" },
+                    { "Id factura cliente", "Id cliente", "Fecha" }
+            },
+            {
+                    { "Compra cliente" },
+                    { "Id compra cliente", "Id producto", "Id factura cliente", "Precio", "Cantidad" }
+            },
+            {
+                    { "Almacen" },
+                    { "Id almacen", "Nombre almacen", "Dimensiones", "Ancho", "Alto", "Profundidad" }
+            },
     };
     String[][][] registrosQuemados = {
             {
