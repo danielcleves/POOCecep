@@ -106,5 +106,4 @@ public class GestorMenu {
         System.out.print(pregunta + " ");
         return reader.readLine();
     }
-    
 }
