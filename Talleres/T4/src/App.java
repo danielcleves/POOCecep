@@ -3,48 +3,57 @@ import GestorBD.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        String[] menu = { "Insercion de datos", "Modificacion de datos", "Eliminacion de datos",
-                "Recuperacion de datos" };
+        
+        String[] menu = { "Inserción de datos", "Modificación de datos", "Eliminación de datos", "Recuperación de datos" };
         String seleccion;
-
         GestorMenu gestorMenu = new GestorMenu();
         GestorBD.Tablas gestorBD = new Tablas();
 
-        seleccion = gestorMenu.showMenu("Menu principal", menu);
-        System.out.println(seleccion);
-
-        gestorMenu.showMenu(seleccion, gestorBD.getTables());
-        switch (seleccion) {
-            case "Insercion de datos":
-                String insD = gestorMenu.showMenu // Insercion de datos
-                ("Seleccione una tabla para insertar datos:", menu);
-                String[] tablaIn = gestorBD.getTables();
-                break;
-
-            case "Modificacion de datos":
-                String modiDa = gestorMenu.showMenu // Modificacion de datos
-                ("Seleccione una tabla para Modificar datos:", menu);
-                String[] tablaMod = gestorBD.getTables();
-                break;
-
-            case "Eliminacion de datos":
-                String eliDa = gestorMenu.showMenu // Modificacion de datos
-                ("Seleccione una tabla para eliminar datos:", menu);
-                String[] tablaEli = gestorBD.getTables();
-                break;
-
-            case "Recuperacion de datos": // Recuperador de datos
-                String recuDa = gestorMenu.showMenu("Seleccione una tabla para recuperacion de datos:", menu);
-                String[] tablaD = gestorBD.getTables();
-                break;
-
-            case "Q":
-                System.out.println("Saliendo...");
-                break;
-            default:
-                System.out.println("Opción no válida.");
-                break;
-        }
-
+        do {
+            seleccion = gestorMenu.showMenu("Menú Principal", menu);
+            System.out.println(seleccion);
+            switch (seleccion) {
+                case "Inserción de datos":
+                    addRegister(gestorMenu, gestorBD, "Seleccione una tabla para inserción de datos:");
+                    break;
+                case "Modificación de datos":
+                    replaceRegister(gestorMenu, gestorBD, "Seleccione una tabla para modificación de datos:");
+                    break;
+                case "Eliminación de datos":
+                    deleteRegister(gestorMenu, gestorBD, "Seleccione una tabla para eliminación de datos:");
+                    break;
+                case "Recuperación de datos":
+                    getRegisters(gestorMenu, gestorBD, "Seleccione una tabla para recuperación de datos:");
+                    break;
+                case "Q":
+                    System.out.println("Saliendo...");
+                    break;
+                default:
+                    System.out.println("Opción no válida.");
+                    break;
+            }
+        } while (!seleccion.equals("Q"));
     }
+
+    private static void getRegisters(GestorMenu gestorMenu, Tablas gestorBD, String string) {
+        
+        throw new UnsupportedOperationException("Unimplemented method 'getRegisters'");
+    }
+
+    private static void deleteRegister(GestorMenu gestorMenu, Tablas gestorBD, String string) {
+    
+        throw new UnsupportedOperationException("Unimplemented method 'deleteRegister'");
+    }
+
+    private static void replaceRegister(GestorMenu gestorMenu, Tablas gestorBD, String string) {
+    
+        throw new UnsupportedOperationException("Unimplemented method 'replaceRegister'");
+    }
+
+    private static void addRegister(GestorMenu gestorMenu, Tablas gestorBD, String string) {
+    
+        throw new UnsupportedOperationException("Unimplemented method 'addRegister'");
+    }   
+        
 }
+
