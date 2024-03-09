@@ -17,12 +17,12 @@ public class App {
             switch (seleccion) {
                 case "Insercion de datos":
                     tablaActual = gestorMenu.showMenu("Inserción de datos", gestorBD.getTables());
-                    String[] Campos = gestorBD.getAttributes(tablaActual);
-                    String[] nuevoRegistro = new String[Campos.length];
+                    String[] campos = gestorBD.getAttributes(tablaActual);
+                    String[] nuevoRegistro = new String[campos.length];
                     int i = 0;
-                    for (String Campo : Campos) {
-                        System.out.println("Que desea agregar en el campo: ");
-                        nuevoRegistro[i] = "prueba";
+                    for (String campo : campos) {
+                        nuevoRegistro[i] = gestorMenu.recibirPregunta("Que desea agregar en el campo "+campo+": " );
+                        
                         i++;
                     }
                     gestorBD.addRegister(tablaActual, nuevoRegistro);
@@ -37,6 +37,7 @@ public class App {
                         System.out.print("\n");
                     }
                     break;
+                
 
                     /*
                      * gestorBD.addRegister(gestorMenu, gestorBD);
