@@ -7,11 +7,17 @@ public class Tablas {
     String[][][] modeloTablas = {
             {
                     { "Cliente" },
-                    { "Id cliente", "Nombre", "Apellido" }
+                    { "Id cliente", "Nombre", "Apellido", "Tipo de documento de identificacion",
+                            "Numero de documento de identificacion", "Lugar de expedicion del documento",
+                            "Direccion de recidencia",
+                            "Telefono", "Email", "Genero", "Fecha de nacimiento" }
             },
             {
                     { "Empleado" },
-                    { "Id Empleado", "Id Almacen" }
+                    { "Id Empleado", "Id Almacen", "Nombre", "Apellidos", "Tipo de documento de identificacion",
+                            "Numero de documento de identificacion", "Direccion de recidencia", "Telefono", "Email",
+                            "Genero", "Fecha de nacimiento", "Info seguro", "Tipo de contrato", "Duracion de contrato",
+                            "Fondo de pensiones", "Sueldo", "Inicio de trabajo" }
             }
     };
     String[][][] registrosQuemados = {
