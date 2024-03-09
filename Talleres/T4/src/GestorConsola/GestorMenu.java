@@ -3,6 +3,7 @@ package GestorConsola;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class GestorMenu {
     public static void main(String[] args) throws IOException {
@@ -14,55 +15,44 @@ public class GestorMenu {
 
     }
 
-    public String showMenu(String menu, String[] opciones) throws IOException {
+      public String showMenu(String menu, String[] opciones) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         // Obtener la longitud máxima de las opciones
-        int maxLongitudOpcion = 0;
-        for (String opcion : opciones) {
-            maxLongitudOpcion = Math.max(maxLongitudOpcion, opcion.length());
-        }
+        int maxLongitudOpcion = Arrays.stream(opciones).map(String::length).max(Integer::compare).orElse(0);
 
         // Obtener la longitud máxima entre el menú y las opciones
-        int longitudTitulo = Math.max(maxLongitudOpcion + 20, menu.length() + 20);
+        int longitudTitulo = Math.max(maxLongitudOpcion + 9, menu.length() + 9);
 
         // Imprimir línea decorativa superior
         System.out.print("╔");
-        for (int j = 0; j < longitudTitulo - 4; j++) {
-            System.out.print("═");
-        }
+        printLineaHorizontal(longitudTitulo);
         System.out.println("╗");
 
         // Imprimir el título
-        System.out.printf("║%-" + (longitudTitulo - 2) + "s║\n", menu);
+        System.out.printf("║%-" + (longitudTitulo - 4) + "s║\n", centrarTexto(menu, longitudTitulo - 4));
 
         // Imprimir línea decorativa entre encabezados y datos
         System.out.print("╠");
-        for (int j = 0; j < longitudTitulo - 4; j++) {
-            System.out.print("═");
-        }
+        printLineaHorizontal(longitudTitulo);
         System.out.println("╣");
 
         // Imprimir opciones verticalmente
         for (String encabezado : opciones) {
-            System.out.printf("║ %-" + (longitudTitulo - 4) + "s ║\n", encabezado);
+            System.out.printf("║%-" + (longitudTitulo - 4) + "s║\n", centrarTexto(encabezado, longitudTitulo - 4));
         }
 
         // Imprimir línea decorativa debajo de los encabezados
         System.out.print("╠");
-        for (int j = 0; j < longitudTitulo - 4; j++) {
-            System.out.print("═");
-        }
+        printLineaHorizontal(longitudTitulo);
         System.out.println("╣");
 
         // Opción para salir
-        System.out.printf("║ %-" + (longitudTitulo - 5) + "s ║\n", (opciones.length + 1) + ") Salir");
+        System.out.printf("║%-" + (longitudTitulo - 4) + "s║\n", centrarTexto(" Q)Salir", longitudTitulo - 6));
 
         // Imprimir línea decorativa inferior
         System.out.print("╚");
-        for (int j = 0; j < longitudTitulo - 4; j++) {
-            System.out.print("═");
-        }
+        printLineaHorizontal(longitudTitulo);
         System.out.println("╝");
 
         System.out.print("Opción: ");
@@ -76,11 +66,34 @@ public class GestorMenu {
         }
 
         int opcion = Integer.parseInt(opcionSeleccionada);
-        if (opcion < 1 || opcion > opciones.length + 1) {
+        if (opcion < 1 || opcion > opciones.length) {
             System.out.println("Opción no válida. Por favor, seleccione nuevamente.");
             return showMenu(menu, opciones); // Volver a mostrar el menú
         }
 
-        return (opcion == opciones.length + 1) ? "Salir" : opciones[opcion - 1];
+        return opciones[opcion - 1];
     }
+
+    private void printLineaHorizontal(int longitud) {
+        int longitudMaxima = Math.min(longitud, 16); // Establece un límite máximo de longitud (por ejemplo, 80 caracteres)
+        for (int j = 0; j < longitudMaxima; j++) {
+            System.out.print("═");
+        }
+    }
+
+    private static String centrarTexto(String texto, int espacios) {
+        int longitudTexto = texto.length();
+        int espaciosEnCadaLado = Math.max(0, (espacios - longitudTexto) / 2);
+
+        StringBuilder resultado = new StringBuilder();
+        for (int i = 0; i < espaciosEnCadaLado; i++) {
+            resultado.append(" ");
+        }
+        resultado.append(texto);
+        for (int i = 0; i < espaciosEnCadaLado; i++) {
+            resultado.append(" ");
+        }
+
+        return resultado.toString();
+    }     
 }
