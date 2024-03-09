@@ -3,6 +3,7 @@ package GestorBD;
 import java.util.ArrayList;
 
 public class Tablas {
+
     String[][][] modeloTablas = {
             {
                     { "Cliente" },
@@ -16,6 +17,10 @@ public class Tablas {
     String[][][] registrosQuemados = {
             {
                     { "1", "Daniel", "Cleves" }
+            },
+
+            {
+                    { "1", "2" }
             }
     };
 
@@ -23,10 +28,13 @@ public class Tablas {
 
     public Tablas() {
         // Se añaden los registros quemados
+        int i = 0;
         for (String[][] tabla : registrosQuemados) {
+            tablas.add(new ArrayList<String[]>());
             for (String[] registro : tabla) {
-                addRegister(tabla[0][0], registro);
+                tablas.get(i).add(registro);
             }
+            i++;
         }
     }
 
