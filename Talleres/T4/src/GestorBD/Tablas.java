@@ -3,6 +3,9 @@ package GestorBD;
 import java.util.ArrayList;
 
 public class Tablas {
+    public static void main(String[] args) {
+        // Sección creada para pruebas
+    }
 
     String[][][] modeloTablas = {
             {
@@ -18,17 +21,79 @@ public class Tablas {
                             "Numero de documento de identificacion", "Direccion de recidencia", "Telefono", "Email",
                             "Genero", "Fecha de nacimiento", "Info seguro", "Tipo de contrato", "Duracion de contrato",
                             "Fondo de pensiones", "Sueldo", "Inicio de trabajo" }
-            }
-    };
-    String[][][] registrosQuemados = {
-            {
-                    { "1", "Daniel", "Cleves" },
-                    { "2", "Juan", "DLC" },
-                    { "3", "Samuel", "Var" },
-                    { "4", "Andrea", "Esc" }
             },
             {
-                    { "1", "2" }
+                    { "Producto" },
+                    { "Id producto", "Marca", "Nombre del producto", "Codigo del producto", "Descripcion del producto",
+                            "Stock", "Precio",
+                            "Fecha de ingreso", "Numero de factura", "Categoría", "Marca" }
+            },
+            {
+                    { "Ubicacion" },
+                    { "Id producto", "Id almacen" }
+            },
+            {
+                    { "Factura cliente" },
+                    { "Id factura cliente", "Id cliente", "Fecha" }
+            },
+            {
+                    { "Compra cliente" },
+                    { "Id compra cliente", "Id producto", "Id factura cliente", "Precio", "Cantidad" }
+            },
+            {
+                    { "Almacen" },
+                    { "Id almacen", "Nombre almacen", "Dimensiones" }
+            },
+    };
+    String[][][] registrosQuemados = {
+            // Registros para la tabla "Cliente"
+            {
+                    { "1", "Daniel", "Cleves", "CC", "123456789", "Cali", "Ciudad Cordoba", "3223777777",
+                            "daniel.cleves.rueda@gmail.com", "M", "15/7/2005" },
+                    { "2", "Juan", "DLC", "CC", "123456789", "Cali", "Ciudad Cordoba", "3223777777",
+                            "daniel.cleves.rueda@gmail.com", "M", "15/7/2005" },
+                    { "3", "Samuel", "Var", "CC", "123456789", "Cali", "Ciudad Cordoba", "3223777777",
+                            "daniel.cleves.rueda@gmail.com", "M", "15/7/2005" },
+                    { "4", "Andrea", "Esc", "CC", "123456789", "Cali", "Ciudad Cordoba", "3223777777",
+                            "daniel.cleves.rueda@gmail.com", "M", "15/7/2005" }
+            },
+            // Registros para la tabla "Empleado"
+            {
+                    { "1", "1", "Juan", "Perez", "CC", "987654321", "Cali", "3223334444", "juan.perez@example.com",
+                            "M", "10/5/1990", "Seguro XYZ", "Tiempo Completo", "Indefinido", "Colpensiones", "5000000",
+                            "01/01/2020" },
+                    { "2", "1", "Maria", "Lopez", "CC", "123123123", "Bogota", "3112223333", "maria.lopez@example.com",
+                            "F", "15/8/1995", "Seguro ABC", "Medio Tiempo", "1 año", "Porvenir", "3500000",
+                            "01/03/2021" }
+            },
+            // Registros para la tabla "Producto"
+            {
+                    { "1", "Samsung", "Galaxy S20", "SAMSUNG001", "Smartphone Samsung Galaxy S20 5G", "100", "1000000",
+                            "01/01/2024", "123456", "Smartphones", "Samsung" },
+                    { "2", "Apple", "iPad Pro", "APPLE001", "Tablet iPad Pro de 11 pulgadas", "50", "2000000",
+                            "01/02/2024", "789012", "Tablets", "Apple" },
+                    { "3", "Sony", "PlayStation 5", "SONY001", "Consola PlayStation 5", "30", "1500000",
+                            "01/03/2024", "456789", "Consolas", "Sony" }
+            },
+            // Registros para la tabla "Ubicacion"
+            {
+                    { "1", "1" },
+                    { "2", "1" }
+            },
+            // Registros para la tabla "Factura cliente"
+            {
+                    { "1", "1", "10/01/2024" },
+                    { "2", "2", "15/01/2024" }
+            },
+            // Registros para la tabla "Compra cliente"
+            {
+                    { "1", "1", "1", "1000000", "2" },
+                    { "2", "2", "2", "1500000", "1" }
+            },
+            // Registros para la tabla "Almacen"
+            {
+                    { "1", "Almacen Principal", "10x10x10" },
+                    { "2", "Almacen Secundario", "8x8x8" }
             }
     };
 
@@ -134,8 +199,7 @@ public class Tablas {
     }
 
     // El método `replaceRegister` en la clase `Tablas` reemplaza un registro
-    // existente en una tabla
-    // específica con un nuevo registro.
+    // existente en una tabla específica con un nuevo registro.
     public void replaceRegister(String tabla, String[] registroViejo, String[] registroNuevo) {
         tablas.get(getTableIndex(tabla)).remove(registroViejo);
         addRegister(tabla, registroNuevo);
