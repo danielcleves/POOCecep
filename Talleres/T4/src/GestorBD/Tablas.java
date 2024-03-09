@@ -14,8 +14,7 @@ public class Tablas {
                     { "Id Empleado", "Id Almacen" }
             }
     };
-    ArrayList<String[]> tablas = new ArrayList<String[]>(Arrays.asList(
-            new String[] { "1", "Daniel", "Cleves" }));
+    ArrayList<String[]> tablas = new ArrayList<String[]>();
 
     public String[] getTables() {
         ArrayList<String> result = new ArrayList<>();
