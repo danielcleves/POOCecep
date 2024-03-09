@@ -109,18 +109,55 @@ public class GestorMenu {
     }
     
     public void showTable(String nombreTabla, String[] atributos, String[][] registros) throws IOException {
-        System.out.println(nombreTabla);
-        System.out.println("--------------------");
+        // Obtener la longitud máxima de cada columna
+        int maxLongitudNombreTabla = centrarTexto(nombreTabla, 0).length();
+        int maxLongitudAtributo = Arrays.stream(atributos).map(String::length).max(Integer::compare).orElse(0);
+        int maxLongitudRegistro = Arrays.stream(registros)
+                .flatMap(Arrays::stream)
+                .map(String::length)
+                .max(Integer::compare)
+                .orElse(0);
+    
+        // Calcular la longitud de la línea horizontal basándote en el contenido real
+        int longitudTitulo = Math.max(maxLongitudNombreTabla, Math.max(maxLongitudAtributo, maxLongitudRegistro)) + 4;
+    
+        // Imprimir línea decorativa superior
+        System.out.print("╔");
+        printLineaHorizontal(longitudTitulo);
+        System.out.println("╗");
+    
+        // Imprimir el título
+        System.out.printf("║%-" + (longitudTitulo - 4) + "s║\n", centrarTexto(nombreTabla, longitudTitulo - 4));
+    
+        // Imprimir línea decorativa entre encabezados y datos
+        System.out.print("╠");
+        printLineaHorizontal(longitudTitulo);
+        System.out.println("╣");
+    
+        // Imprimir atributos verticalmente
         for (String atributo : atributos) {
-            System.out.print(atributo + "\t");
+            System.out.printf("║%-" + (longitudTitulo - 4) + "s║\n", centrarTexto(atributo, longitudTitulo - 4));
         }
-        System.out.println("--------------------");
+    
+        // Imprimir línea decorativa debajo de los encabezados
+        System.out.print("╠");
+        printLineaHorizontal(longitudTitulo);
+        System.out.println("╣");
+    
+        // Imprimir registros
         for (String[] registro : registros) {
             for (String atributo : registro) {
-                System.out.print(atributo + "\t");
+                System.out.printf("║%-" + (longitudTitulo - 4) + "s║\n", centrarTexto(atributo, longitudTitulo - 4));
             }
-            System.out.println("- - - - - - - - - - -");
+            // Imprimir línea decorativa entre registros
+            System.out.print("╠");
+            printLineaHorizontal(longitudTitulo);
+            System.out.println("╣");
         }
-    }
     
+        // Imprimir línea decorativa inferior
+        System.out.print("╚");
+        printLineaHorizontal(longitudTitulo);
+        System.out.println("╝");
+    }
 }
